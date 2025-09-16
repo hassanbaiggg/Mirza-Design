@@ -1,216 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Hayat Designer — Premium Graphic Design Agency</title>
-  <meta name="description" content="Hayat Designer — Premium graphic design services for logos, branding, posters, social media, and creative marketing." />
-  <meta property="og:title" content="Hayat Designer — Graphic Design Agency" />
-  <meta property="og:description" content="Logos, Posters, Branding, Social Media — Build your brand with Hayat Designer." />
-  <meta property="og:type" content="website" />
+  <meta name="description" content="Hayat Designer — Premium graphic design services: logo design, branding, posters, social media, printing, PVC/ID cards. Contact on WhatsApp: +92 312 2831082" />
+  <meta name="theme-color" content="#1f0b3a" />
+  <meta property="og:title" content="Hayat Designer — Premium Graphic Designer" />
+  <meta property="og:description" content="Top premium graphic design services. Logos, Branding, Social Media, Posters & more. Contact on WhatsApp: +92 312 2831082" />
   <meta property="og:image" content="cover.jpg" />
-  <meta name="theme-color" content="#2a0845" />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- AOS Animate On Scroll -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --primary-1: #2a0845;
-      --primary-2: #6441a5;
-      --accent: #FFD700;
-      --text: #ffffff;
-      --muted: #cccccc;
+    :root{
+      --bg1: #0f0520;            /* deep */
+      --bg2: #2a0845;            /* purple */
+      --accent: #ffd166;         /* gold */
+      --muted: #cfc8d8;
+      --card: rgba(255,255,255,0.04);
+      --glass: rgba(255,255,255,0.06);
+      --radius: 14px;
     }
-    * {margin:0;padding:0;box-sizing:border-box;}
-    html {scroll-behavior: smooth;}
-    body {
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, var(--primary-1), var(--primary-2));
-      color: var(--text);
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(135deg,var(--bg1),var(--bg2));
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
-    h1,h2,h3 {color: var(--accent);}
-    p {color: var(--muted);}
-    section {padding:80px 20px;max-width:1200px;margin:auto;}
-    .btn {
-      display:inline-block;background:var(--accent);color:#000;
-      padding:12px 25px;border-radius:8px;text-decoration:none;font-weight:bold;
-      transition:0.3s;
-    }
-    .btn:hover {background:#e6c200;}
 
-    /* Navbar */
-    nav {
-      position:fixed;top:0;left:0;width:100%;
-      background:rgba(0,0,0,0.5);backdrop-filter:blur(6px);
-      display:flex;justify-content:space-between;align-items:center;
-      padding:15px 40px;z-index:1000;
+    /* NAV */
+    nav{
+      position:fixed;top:12px;left:50%;transform:translateX(-50%);
+      background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.12));
+      padding:10px 18px;border-radius:999px;backdrop-filter: blur(6px);
+      z-index:999;width:calc(100% - 40px);max-width:1100px;display:flex;align-items:center;justify-content:space-between;
+      gap:10px;
     }
-    nav a {color:#fff;text-decoration:none;margin:0 15px;font-weight:500;}
-    nav a:hover {color:var(--accent);}
+    nav .brand{font-weight:700;color:var(--accent);letter-spacing:0.6px}
+    nav .links{display:flex;gap:12px;align-items:center}
+    nav .links a{color:#fff;text-decoration:none;padding:6px 10px;border-radius:8px;font-weight:600;opacity:0.95}
+    nav .links a:hover{color:var(--bg2);background:var(--accent)}
 
-    /* Hero */
-    header {
-      text-align:center;padding:140px 20px;
+    /* HERO */
+    header.hero{
+      padding:120px 20px 60px;
+      text-align:center;
+      max-width:1100px;margin:30px auto 0;
     }
-    header h1 {font-size:3.2rem;animation:fadeInDown 1.2s ease;}
-    header p {font-size:1.3rem;margin:15px 0;animation:fadeInUp 1.5s ease;}
-    header .btn {animation:bounceIn 2s infinite alternate;}
-
-    @keyframes fadeInDown {0%{opacity:0;transform:translateY(-40px);}100%{opacity:1;transform:translateY(0);}}
-    @keyframes fadeInUp {0%{opacity:0;transform:translateY(40px);}100%{opacity:1;transform:translateY(0);}}
-    @keyframes bounceIn {0%{transform:translateY(0);}100%{transform:translateY(-10px);}}
-
-    /* Portfolio */
-    .portfolio {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
-    .portfolio img {width:100%;border-radius:12px;transition:0.4s;}
-    .portfolio img:hover {transform:scale(1.07);box-shadow:0 10px 30px rgba(0,0,0,0.4);}
-
-    /* Services */
-    .services {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-    .service {
-      background:rgba(0,0,0,0.3);padding:20px;border-radius:12px;text-align:center;
-      transition:0.3s;
+    .hero .eyebrow{display:inline-block;background:rgba(255,255,255,0.06);padding:6px 12px;border-radius:999px;color:var(--muted);font-weight:600;margin-bottom:18px}
+    .hero h1{font-size:2.8rem;margin:10px 0;line-height:1.02;color:var(--accent)}
+    .hero p.lead{font-size:1.05rem;color:var(--muted);max-width:820px;margin:14px auto 24px}
+    .hero .cta{display:inline-flex;gap:12px;align-items:center}
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent), #f0c04a);
+      color:#000;padding:12px 18px;border-radius:12px;font-weight:700;text-decoration:none;
+      box-shadow:0 8px 30px rgba(0,0,0,0.35);
     }
-    .service:hover {transform:translateY(-8px);box-shadow:0 10px 20px rgba(0,0,0,0.3);}
+    .btn-ghost{border:1px solid rgba(255,255,255,0.08);padding:10px 14px;border-radius:12px;color:var(--muted);text-decoration:none;font-weight:600}
+
+    /* LAYOUT SECTIONS */
+    section{padding:70px 20px;max-width:1100px;margin:auto}
+    .section-title{display:flex;flex-direction:column;align-items:center;margin-bottom:28px}
+    .section-title h2{color:var(--accent);font-size:1.6rem;margin-bottom:8px}
+    .section-title p{color:var(--muted);text-align:center;max-width:760px}
+
+    /* Services grid */
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+    .service{
+      background:var(--card);padding:20px;border-radius:12px;min-height:140px;transition:transform .28s,box-shadow .28s;
+    }
+    .service h3{margin-bottom:8px;color:var(--accent)}
+    .service p{color:var(--muted)}
+    .service:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,0.6)}
+
+    /* Portfolio masonry-like */
+    .portfolio{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;
+    }
+    .pf-card{
+      position:relative;border-radius:12px;overflow:hidden;background:var(--glass);cursor:pointer;
+    }
+    .pf-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+    .pf-card:hover img{transform:scale(1.06)}
+    .pf-overlay{
+      position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.6));
+      display:flex;align-items:flex-end;padding:16px;color:#fff;font-weight:700;
+    }
+
+    /* Pricing */
+    .pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    .plan{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:22px;border-radius:12px;text-align:center}
+    .plan h3{margin-bottom:8px;color:var(--accent)}
+    .plan .price{font-size:1.6rem;font-weight:800;margin:12px 0;color:#fff}
+
+    /* Testimonials carousel simple */
+    .testimonials{position:relative;overflow:hidden}
+    .test-row{display:flex;gap:14px;transition:transform .5s}
+    .testimonial{min-width:280px;background:rgba(0,0,0,0.35);padding:18px;border-radius:12px;font-style:italic;color:var(--muted)}
 
     /* Team */
-    .team {display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
-    .member {
-      text-align:center;background:rgba(0,0,0,0.3);border-radius:12px;padding:20px;transition:0.3s;
-    }
-    .member img {width:120px;height:120px;border-radius:50%;margin-bottom:10px;}
-    .member:hover {transform:scale(1.05);}
+    .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+    .member{background:var(--card);padding:18px;border-radius:12px;text-align:center}
+    .member img{width:96px;height:96px;border-radius:50%;object-fit:cover;margin-bottom:10px;border:3px solid rgba(255,255,255,0.06)}
 
     /* Blog */
-    .blog {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
-    .post {background:rgba(0,0,0,0.3);padding:20px;border-radius:12px;transition:0.3s;}
-    .post:hover {transform:translateY(-6px);box-shadow:0 8px 18px rgba(0,0,0,0.4);}
+    .blog{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+    .post{background:rgba(255,255,255,0.04);padding:18px;border-radius:12px}
 
     /* Contact */
-    .contact form {display:grid;gap:15px;}
-    .contact input,.contact textarea {
-      padding:12px;border:none;border-radius:8px;outline:none;font-size:1rem;
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
+    @media (max-width:900px){ .contact-grid{grid-template-columns:1fr} }
+
+    .contact form{display:grid;gap:12px}
+    input,textarea{
+      width:100%;padding:12px;border-radius:10px;border:none;background:rgba(255,255,255,0.03);color:#fff;outline:none;
     }
-    .whatsapp-btn {
-      position:fixed;bottom:20px;right:20px;background:#25d366;
-      color:#fff;padding:14px 18px;border-radius:50%;
-      font-size:22px;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,0.4);
-      transition:0.3s;z-index:999;
-    }
-    .whatsapp-btn:hover {background:#1ebe5b;}
+    .note{color:var(--muted);font-size:0.95rem}
 
     /* Footer */
-    footer {text-align:center;padding:20px;background:rgba(0,0,0,0.5);margin-top:40px;}
+    footer{padding:30px 20px;text-align:center;color:var(--muted);background:linear-gradient(180deg,transparent,rgba(0,0,0,0.12));margin-top:40px;border-top:1px solid rgba(255,255,255,0.03)}
+
+    /* Floating WhatsApp */
+    .wa-float{
+      position:fixed;right:20px;bottom:22px;background:#25d366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 10px 30px rgba(0,0,0,0.45);z-index:9999;text-decoration:none;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width:800px){
+      nav{padding:10px 12px}
+      header.hero{padding-top:90px}
+      .hero h1{font-size:2rem}
+    }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
+
+  <!-- NAV -->
   <nav>
-    <div><a href="#">Hayat Designer</a></div>
-    <div>
+    <div class="brand">Hayat Designer</div>
+    <div class="links">
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#portfolio">Portfolio</a>
-      <a href="#team">Team</a>
-      <a href="#blog">Blog</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#testimonials">Reviews</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="eyebrow">Premium • Creative • Fast</div>
     <h1>Hayat Designer</h1>
-    <p>Premium Graphic Design Agency — Creativity That Works</p>
-    <a href="#contact" class="btn">Hire Me</a>
+    <p class="lead">We craft premium brand identities, eye-catching posters, social media campaigns and print-ready designs that convert. Work with a designer who delivers on style and results.</p>
+    <div class="cta">
+      <a class="btn-primary" href="#contact">Get a Quote</a>
+      <a class="btn-ghost" href="#portfolio">View Portfolio</a>
+    </div>
   </header>
 
-  <!-- About -->
-  <section id="about" data-aos="fade-up">
-    <h2>About Us</h2>
-    <p>We are <strong>Hayat Designer</strong>, a premium graphic design agency that creates powerful visuals for businesses worldwide. From logos and branding to social media marketing, we craft designs that leave a lasting impression.</p>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-title">
+      <h2>About Hayat Designer</h2>
+      <p>Hayat Designer is a premium graphic studio providing full-service design and branding solutions. We blend strategic thinking with beautiful visuals to help businesses stand out.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start">
+      <div>
+        <p style="color:var(--muted)">Over the past years we've worked with local and international brands — building logos, brand identity kits, social campaigns and high-impact print media. Our process focuses on clarity, creativity and fast delivery.</p>
+        <ul style="color:var(--muted);margin-top:12px">
+          <li>Brand Strategy + Visual Identity</li>
+          <li>Logo System & Guidelines</li>
+          <li>Social Media & Ad Creatives</li>
+          <li>Posters, Banners & Print-ready Files</li>
+        </ul>
+      </div>
+      <div style="background:var(--card);padding:18px;border-radius:12px">
+        <h3 style="color:var(--accent)">Quick Stats</h3>
+        <p style="color:var(--muted)">150+ Projects • 120 Happy Clients • 2-7 day deliveries</p>
+        <a class="btn-primary" href="#contact">Work With Us</a>
+      </div>
+    </div>
   </section>
 
-  <!-- Services -->
-  <section id="services" data-aos="fade-right">
-    <h2>Our Services</h2>
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-title">
+      <h2>Services</h2>
+      <p>Everything you need for premium branding and promotional material — custom made for your business.</p>
+    </div>
     <div class="services">
-      <div class="service"><h3>Logo Design</h3><p>Creative & memorable logos.</p></div>
-      <div class="service"><h3>Brand Identity</h3><p>Full brand guidelines & kits.</p></div>
-      <div class="service"><h3>Social Media</h3><p>Posts, ads & story designs.</p></div>
-      <div class="service"><h3>Posters & Flyers</h3><p>Eye-catching promotional designs.</p></div>
-      <div class="service"><h3>Business Cards</h3><p>Premium PVC/ID designs.</p></div>
-      <div class="service"><h3>Marketing Ads</h3><p>Creative advertisements for growth.</p></div>
+      <div class="service" data-key="logo">
+        <h3>Logo Design</h3>
+        <p>Custom logos with multiple variations and brand mark usage.</p>
+      </div>
+      <div class="service" data-key="branding">
+        <h3>Brand Identity</h3>
+        <p>Full brand kits, color systems and guidelines for consistent look.</p>
+      </div>
+      <div class="service" data-key="social">
+        <h3>Social Media Design</h3>
+        <p>Posts, stories, ads and animated assets for high engagement.</p>
+      </div>
+      <div class="service" data-key="print">
+        <h3>Posters & Print</h3>
+        <p>Flyers, banners, catalogs and print-ready files with bleed setup.</p>
+      </div>
+      <div class="service" data-key="cards">
+        <h3>PVC / ID Cards</h3>
+        <p>Durable professional ID & PVC card design for staff and events.</p>
+      </div>
+      <div class="service" data-key="ads">
+        <h3>Marketing Ads</h3>
+        <p>Creative ad visuals optimized for conversion across platforms.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Portfolio -->
-  <section id="portfolio" data-aos="zoom-in">
-    <h2>Portfolio</h2>
-    <div class="portfolio">
-      <img src="https://via.placeholder.com/400x300" alt="Work 1">
-      <img src="https://via.placeholder.com/400x300" alt="Work 2">
-      <img src="https://via.placeholder.com/400x300" alt="Work 3">
-      <img src="https://via.placeholder.com/400x300" alt="Work 4">
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="section-title">
+      <h2>Portfolio</h2>
+      <p>Selected works — click images to view larger (replace these placeholders with your real project images).</p>
+    </div>
+    <div class="portfolio" id="portfolioGrid">
+      <!-- Placeholder images (replace these URLs with your images inside repo or external links) -->
+      <div class="pf-card"><img src="https://via.placeholder.com/800x600?text=Project+1" alt="Project 1"><div class="pf-overlay">Brand Identity — Project 1</div></div>
+      <div class="pf-card"><img src="https://via.placeholder.com/800x600?text=Project+2" alt="Project 2"><div class="pf-overlay">Logo Design — Project 2</div></div>
+      <div class="pf-card"><img src="https://via.placeholder.com/800x600?text=Project+3" alt="Project 3"><div class="pf-overlay">Social Campaign — Project 3</div></div>
+      <div class="pf-card"><img src="https://via.placeholder.com/800x600?text=Project+4" alt="Project 4"><div class="pf-overlay">Poster Series — Project 4</div></div>
+      <div class="pf-card"><img src="https://via.placeholder.com/800x600?text=Project+5" alt="Project 5"><div class="pf-overlay">Packaging — Project 5</div></div>
+      <div class="pf-card"><img src="https://via.placeholder.com/800x600?text=Project+6" alt="Project 6"><div class="pf-overlay">Ad Creative — Project 6</div></div>
     </div>
   </section>
 
-  <!-- Team -->
-  <section id="team" data-aos="fade-up">
-    <h2>Meet The Team</h2>
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="section-title"><h2>Pricing</h2><p>Simple starter pricing — custom quotes available for enterprise projects.</p></div>
+    <div class="pricing">
+      <div class="plan">
+        <h3>Starter</h3>
+        <div class="price">$50</div>
+        <ul style="list-style:none;padding:0;color:var(--muted)">
+          <li>1 Logo concept</li><li>2 revisions</li><li>Delivery in 3 days</li>
+        </ul>
+        <div style="margin-top:14px"><a class="btn-primary" href="https://wa.me/923122831082?text=Hi%20Hayat%20Designer%2C%20I%20am%20interested%20in%20the%20Starter%20plan">Order Now</a></div>
+      </div>
+      <div class="plan">
+        <h3>Business</h3>
+        <div class="price">$120</div>
+        <ul style="list-style:none;padding:0;color:var(--muted)">
+          <li>Logo + Brand kit</li><li>4 revisions</li><li>Delivery in 5 days</li>
+        </ul>
+        <div style="margin-top:14px"><a class="btn-primary" href="https://wa.me/923122831082?text=Hi%20Hayat%20Designer%2C%20I%20am%20interested%20in%20the%20Business%20plan">Order Now</a></div>
+      </div>
+      <div class="plan">
+        <h3>Premium</h3>
+        <div class="price">$300</div>
+        <ul style="list-style:none;padding:0;color:var(--muted)">
+          <li>Full brand identity</li><li>Unlimited revisions</li><li>Delivery in 7 days</li>
+        </ul>
+        <div style="margin-top:14px"><a class="btn-primary" href="https://wa.me/923122831082?text=Hi%20Hayat%20Designer%2C%20I%20am%20interested%20in%20the%20Premium%20plan">Order Now</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="section-title"><h2>Client Reviews</h2><p>Real feedback from satisfied clients.</p></div>
+    <div class="testimonials">
+      <div class="test-row" id="testRow">
+        <div class="testimonial">"Best designer I've worked with — superb quality and fast." — Amina</div>
+        <div class="testimonial">"Delivered exactly what we envisioned. Professional and reliable." — Bilal</div>
+        <div class="testimonial">"Creative ideas and on-time delivery. Highly recommended." — Zara</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team">
+    <div class="section-title"><h2>Meet The Team</h2><p>Small team of creative minds behind the work.</p></div>
     <div class="team">
       <div class="member">
-        <img src="https://via.placeholder.com/120" alt="Hayat">
-        <h3>Hayat Designer</h3>
-        <p>Founder & Creative Director</p>
+        <img src="https://via.placeholder.com/120?text=H" alt="Hayat">
+        <h3>Hayat Designer</h3><p style="color:var(--muted)">Founder & Creative Director</p>
       </div>
       <div class="member">
-        <img src="https://via.placeholder.com/120" alt="Ali">
-        <h3>Ali</h3>
-        <p>Graphic Specialist</p>
+        <img src="https://via.placeholder.com/120?text=A" alt="Ali">
+        <h3>Ali</h3><p style="color:var(--muted)">Senior Designer</p>
       </div>
       <div class="member">
-        <img src="https://via.placeholder.com/120" alt="Sara">
-        <h3>Sara</h3>
-        <p>Brand Consultant</p>
+        <img src="https://via.placeholder.com/120?text=S" alt="Sara">
+        <h3>Sara</h3><p style="color:var(--muted)">Brand Strategist</p>
       </div>
     </div>
   </section>
 
-  <!-- Blog -->
-  <section id="blog" data-aos="fade-left">
-    <h2>Latest Blog</h2>
+  <!-- BLOG -->
+  <section id="blog">
+    <div class="section-title"><h2>Design Tips & Articles</h2><p>Short insights to help you design better.</p></div>
     <div class="blog">
-      <div class="post"><h3>5 Tips for a Memorable Logo</h3><p>Learn the essentials of creating an impactful logo.</p></div>
-      <div class="post"><h3>Design Trends 2025</h3><p>Stay ahead with the latest design inspirations.</p></div>
-      <div class="post"><h3>Branding that Sells</h3><p>Why branding matters more than ever.</p></div>
+      <div class="post"><h3>5 Principles of Memorable Logos</h3><p style="color:var(--muted)">Keep it simple. Make it scalable. Make it relevant.</p></div>
+      <div class="post"><h3>Color Trends for 2025</h3><p style="color:var(--muted)">Premium gradients & bold accents are in demand.</p></div>
+      <div class="post"><h3>Creating Social-First Graphics</h3><p style="color:var(--muted)">Design with platform and audience in mind.</p></div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="contact" data-aos="fade-up">
-    <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
-    </form>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-title"><h2>Contact & Orders</h2><p>Ready to start? Send a quick message or chat directly on WhatsApp.</p></div>
+    <div class="contact-grid">
+      <div>
+        <form id="contactForm" onsubmit="return submitForm(event)">
+          <input id="name" type="text" placeholder="Your Name" required>
+          <input id="email" type="email" placeholder="Your Email" required>
+          <input id="subject" type="text" placeholder="Subject" required>
+          <textarea id="message" rows="6" placeholder="Tell us about your project" required></textarea>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <button type="submit" class="btn-primary">Send Message</button>
+            <a class="btn-ghost" href="mailto:hayat@example.com">Email Us</a>
+          </div>
+        </form>
+      </div>
+      <div style="background:var(--card);padding:18px;border-radius:12px">
+        <h3 style="color:var(--accent)">Quick Contact</h3>
+        <p class="note">WhatsApp (fastest):</p>
+        <p style="font-weight:700"><a style="color:var(--accent);text-decoration:none" href="https://wa.me/923122831082" target="_blank">+92 312 2831082</a></p>
+        <p class="note">Or send an email and we'll respond within 24 hours.</p>
+        <div style="margin-top:12px"><a class="btn-primary" href="https://wa.me/923122831082?text=Hello%20Hayat%20Designer%2C%20I%20want%20to%20order%20a%20design">Chat Now</a></div>
+      </div>
+    </div>
   </section>
 
-  <!-- Floating WhatsApp -->
-  <a class="whatsapp-btn" href="https://wa.me/923122831082" target="_blank">💬</a>
+  <!-- FLOATING WHATSAPP -->
+  <a class="wa-float" href="https://wa.me/923122831082" target="_blank" aria-label="Chat on WhatsApp">💬</a>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
-    <p>© 2025 Hayat Designer | Premium Graphic Design Agency | All Rights Reserved</p>
+    <p>© <span id="year"></span> Hayat Designer — Premium Graphic Design Agency • All rights reserved.</p>
   </footer>
 
-  <!-- AOS Animate Script -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // simple testimonials auto-scroll
+    (function(){
+      const row = document.getElementById('testRow');
+      let pos = 0;
+      function slide(){
+        pos -= 300; // slide px
+        if(Math.abs(pos) >= row.scrollWidth/1.2) pos = 0;
+        row.style.transform = 'translateX(' + pos + 'px)';
+      }
+      setInterval(slide, 3500);
+    })();
+
+    // contact form -> open whatsapp with message (fallback to mailto)
+    function submitForm(e){
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById('name').value || 'Client');
+      const subj = encodeURIComponent(document.getElementById('subject').value || 'Project Inquiry');
+      const msg = encodeURIComponent(document.getElementById('message').value || '');
+      const phone = '923122831082'; // no plus, wa.me format
+      const text = `Hi Hayat Designer,%0A%0AName: ${name}%0ASubject: ${subj}%0AMessage: ${msg}%0A%0APlease%20reply.`;
+      // try open WhatsApp
+      const wa = 'https://wa.me/' + phone + '?text=' + text;
+      window.open(wa, '_blank');
+      return false;
+    }
+
+    // small: clicking portfolio opens full image in new tab
+    document.querySelectorAll('.pf-card').forEach(card=>{
+      card.addEventListener('click', ()=>{
+        const img = card.querySelector('img').src;
+        window.open(img,'_blank');
+      });
+    });
+  </script>
 </body>
-</html>
+  </html>
+            
